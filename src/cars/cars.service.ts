@@ -57,9 +57,13 @@ export class CarsService {
     return carDB;
   }
   delete(id: string) {
+    //si car es undifined - automaticamente retorna un error
     const car = this.findOneById(id);
     /*     if (!car)
       throw new NotFoundException(`El auto con el id: ${id}, ya no existe `); */
     this.cars = this.cars.filter((car) => car.id !== id);
+  }
+  fillCarsWithSeedData(cars: Car[]) {
+    this.cars = cars;
   }
 }
